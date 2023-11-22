@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<p>&nbsp; </p>
+<p><strong>在创新方面</strong>，我们的创新方法在图像融合领域引入了语义先验知识，这是首次在文献中探讨的。因此，仅凭这一点，我们的方法不应被简单地归类为&ldquo;Minor originality&rdquo;。 <br />
+  <strong>在性能方面</strong>，我们对比了我们的方法与当前领先的9种方法，具体结果详见文中Table1。我们的方法在MSRS数据集上表现优越，超过其他9种方法，包括审稿人提到的SeAFusion，该方法在融合领域被广泛认为是最为出色的。为了全面比较我们的方法和SeAFusion的性能，我们进行了泛化分析比较，选择了M3FD数据集，并随机选取了20对融合结果进行均值计算。结果显示，我们的方法在M3FD数据集上也表现出卓越性能： </p>
+<div align="center">
+  <table border="2" cellspacing="0" cellpadding="0" width="442">
+    <tr>
+      <td width="82" nowrap="nowrap"><br />
+        Method </td>
+      <td width="72" nowrap="nowrap"><p align="left">MI</p></td>
+      <td width="72" nowrap="nowrap"><p align="left"> VIF</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">AG</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">Qabf</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">SF</p></td>
+    </tr>
+    <tr>
+      <td width="82" nowrap="nowrap" valign="bottom"><p align="center">SeAFusion</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">2.8996</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">0.8261</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">4.4289</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">0.6711</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">13.7051</p></td>
+    </tr>
+    <tr>
+      <td width="82" nowrap="nowrap" valign="bottom"><p align="left">Our</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">3.6612</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">0.864</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">4.5295</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">0.7044</p></td>
+      <td width="72" nowrap="nowrap"><p align="left">13.8751</p></td>
+    </tr>
+  </table>
+</div>
+<p>因此，我们的方法在创新性和性能优越性方面，不应被过于简化为&ldquo;quite limited&rdquo;<br />
+  <strong>Review 045A</strong><strong>的回复： </strong><br />
+  1.增加消融实验对抗损失和内容损失如下： <br />
+  <strong>Review 284F</strong><strong>的回复： </strong><br />
+  1.加入梯度惩罚项主要有两个作用：（一）使得红外或可见光梯度值越大的，惩罚越小，梯度值越小的，惩罚越大，从而促使融合图像生成更多的边缘和梯度信息。（二）使得模型输入有微小变化的时候，网络权重不会产生太大的变化，尽可能减少 mode collapse 问题的产生。<strong> </strong><br />
+  2.不同在于Wu  et al.[17]采用了转置注意机制计算成本注意力图，而我们采用两特征图进行相乘，再通过softmax函数计算注意力图。相同之处都是计算了两特征之间的相似性。<strong> </strong><br />
+  <strong>Review 4BF9</strong><strong>的回复：   <a name="OLE_LINK1" id="OLE_LINK1"> </a></strong></p>
+<div align="center">
+  <table border="2" cellspacing="0" cellpadding="0" width="920">
+    <tr>
+      <td width="73" nowrap="nowrap"><br />
+      </td>
+      <td width="89" nowrap="nowrap"><p align="center">FusionGan</p></td>
+      <td width="95" nowrap="nowrap"><p align="center">DenseFuse</p></td>
+      <td width="85" nowrap="nowrap"><p align="center">DIDFuse</p></td>
+      <td width="66" nowrap="nowrap"><p align="center">PMGI</p></td>
+      <td width="80" nowrap="nowrap"><p align="center">ICAFusion</p></td>
+      <td width="80" nowrap="nowrap"><p align="center">IFCNN</p></td>
+      <td width="76" nowrap="nowrap"><p align="center">GANMcc</p></td>
+      <td width="92" nowrap="nowrap"><p align="center">SeAFusion</p></td>
+      <td width="73" nowrap="nowrap"><p align="center">U2Fusion</p></td>
+      <td width="111" nowrap="nowrap"><p align="center">Our</p></td>
+    </tr>
+    <tr>
+      <td width="73" nowrap="nowrap"><p align="center">Size(MB)</p></td>
+      <td width="89" nowrap="nowrap"><p align="center">0.074</p></td>
+      <td width="95" nowrap="nowrap"><p align="center">0.075</p></td>
+      <td width="85" nowrap="nowrap"><p align="center">0.261</p></td>
+      <td width="66" nowrap="nowrap"><p align="center">0.042</p></td>
+      <td width="80" nowrap="nowrap"><p align="center">2.471</p></td>
+      <td width="80" nowrap="nowrap"><p align="center">0.084</p></td>
+      <td width="76" nowrap="nowrap"><p align="center">1.864</p></td>
+      <td width="92" nowrap="nowrap"><p align="center">0.167</p></td>
+      <td width="73" nowrap="nowrap"><p align="center">0.659</p></td>
+      <td width="111" nowrap="nowrap"><p align="center">3.727</p></td>
+    </tr>
+    <tr>
+      <td width="73" nowrap="nowrap"><p align="center">Time(s)</p></td>
+      <td width="89" nowrap="nowrap"><p align="center">0.122</p></td>
+      <td width="95" nowrap="nowrap"><p align="center">3.435</p></td>
+      <td width="85" nowrap="nowrap"><p align="center">0.053</p></td>
+      <td width="66" nowrap="nowrap"><p align="center">0.058</p></td>
+      <td width="80" nowrap="nowrap"><p align="center">9.398</p></td>
+      <td width="80" nowrap="nowrap"><p align="center">0.021</p></td>
+      <td width="76" nowrap="nowrap"><p align="center">0.338</p></td>
+      <td width="92" nowrap="nowrap"><p align="center">0.655</p></td>
+      <td width="73" nowrap="nowrap"><p align="center">0.057</p></td>
+      <td width="111" nowrap="nowrap"><p align="center">4.708</p></td>
+    </tr>
+  </table>
+</div>
+<p>上表显示我们的模型参数量较大，平均每生成一个融合图像所需的时间最长。 </p>
+<p><strong>Review 0F1D</strong><strong>的回复： </strong><br />
+  1. 图1、图2和表1中引用已在文章中进行了修改。 </p>
+<p>&nbsp;</p>
+</body>
+</html>
