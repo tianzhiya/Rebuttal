@@ -66,7 +66,8 @@
 <p>(i) it makes the penalty smaller for larger IR or visible gradient values, and larger for smaller gradient values, thus prompting the fused image to generate more edge and gradient information. </p>
 <p>(ii) make the model input has a small change, the network weights will not produce too much change, as far as possible to reduce the generation of mode collapse problem.<br />
 </p>
-<p>2. The difference lies in 1. Wu et al. [17] used the transposed attention mechanism to compute the cost attention map, while we use two feature maps to multiply and then compute the attention map by softmax function.The similarity is that we compute the similarity between two features. advantages that Transformer has when dealing with differences between modal information.<br />
+<p>2. Both our semantic awareness module and Wu et al. [17] take full advantage of Transformer's handling of different modal information. However, the difference lies in the fact that Wu et al [17] employ a transposed attention mechanism. In their approach, Query (Q), Key (K), and Value (V) are directly copies of the input sequence, and the key information in the input sequence is captured by computing the cost attention graph. On the contrary, our method introduces a linear transformation in computing the cost attention graph to obtain Q, K, and V, and subsequently obtains the attention weights through a Softmax operation. Through Wu et al [17] let us recognize the advantages of Transformer in handling the difference between the two modal information.<br />
+  <br />
 </p>
 <p>&nbsp;</p>
 <p><strong class="color"><span class="color">Response from Review</span></strong><span class="color"> 4BF9:</span></p>
