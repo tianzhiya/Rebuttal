@@ -15,6 +15,9 @@
 	text-align: center;
 	font-weight: bold;
 }
+.jiacu {
+	font-weight: bold;
+}
 </style>
 </head>
 
@@ -61,18 +64,21 @@
 </p>
 <p>Since retraining the network takes longer, we will mention this process in the article but will not show it here.</p>
 <p>&nbsp;</p>
-<p><span class="color"><strong class="color">Response from Review</strong> 284F:</span><br />
-  1. The addition of the gradient penalty term has two main effects: </p>
+<p><span class="color"><strong class="color">Response from Review</strong> 284F:</span></p>
+<p align="left">1. How stable is the training of WGAN, and could the  authors elaborate on the consideration of the Lipschitz constant in the loss  functions of WGAN? The absence of clarification on this constraint leaves room  for uncertainty and warrants further explanation.<br />
+The addition of the gradient penalty term has two main effects: </p>
 <p>(i) it makes the penalty smaller for larger IR or visible gradient values, and larger for smaller gradient values, thus prompting the fused image to generate more edge and gradient information. </p>
-<p>(ii) make the model input has a small change, the network weights will not produce too much change, as far as possible to reduce the generation of mode collapse problem.<br />
+<p>(ii) make the model input has a small change, the network weights will not produce too much change, as far as possible to reduce the generation of mode collapse problem.</p>
+<p>&nbsp;</p>
+<p>2. What is the difference between semantic feature awareness module between Wu et al.[17]?<br />
 </p>
-<p>2. The proposed  method and the method of Wu et al [17] have the following different operations  in the semantic perception module: in the Pre-Processing stage, for visible or  infrared feature maps with large channels, we reduce the number of feature map  channels by using a 1x1 convolutional kernel, and subsequently compute the  cost-attention maps, which reduces the GPU memory footprint.<br />
+<p> The proposed  method and the method of Wu et al [17] have the following different operations  in the semantic perception module: in the Pre-Processing stage, for visible or  infrared feature maps with large channels, we reduce the number of feature map  channels by using a 1x1 convolutional kernel, and subsequently compute the  cost-attention maps, which reduces the GPU memory footprint.<br />
 In the FeedForward  stage, we fuse the IR or visible feature maps with the semantic feature maps by  element-by-element multiplication and introduce the nonlinear relation GELU  function. Different from Wu et al.'s approach [17], they generate two copies of  semantic-aware feature maps by convolutional operation and then multiply these  two copies together. Our method enhances the semantic fusion capability and  introduces nonlinear elements to improve the expressive power of the model.</p>
 <p><br />
   <br />
 </p>
-<p>&nbsp;</p>
 <p><strong class="color"><span class="color">Response from Review</span></strong><span class="color"> 4BF9:</span></p>
+<p>1.Please compare the model complexity and the run time complexity of the proposed model with those of some selected SOTAs.</p>
 <p class="mCenter">Table 2: SPGFusion efficiency analysis, which compares it to each of the nine current state-of-the-art methods.</p>
 <div align="center">
   <table width="920" border="1" align="center" cellpadding="0" cellspacing="0">
@@ -120,8 +126,11 @@ In the FeedForward  stage, we fuse the IR or visible feature maps with the seman
 <p>We analysed model size (Mb) and inference time (s) for all compared methods, including several state-of-the-art (SOTA) methods. Note that each model was performed on a single NVIDIA 3060Ti GPU, with the input scaled to 640 × 480. from the results in Table 1, our SPGFusion ranks highest in terms of model size, with a maximum parameter count of 3.727 MB. Meanwhile, the inference time ranks second to the bottom, a phenomenon attributed to our adopted a semantic feature-aware approach. Therefore, how to achieve a better balance between performance and efficiency has become an important direction for our future research.<br />
 </p>
 <p>&nbsp;</p>
-<p><strong class="color"><span class="color">Response from Review</span></strong><span class="color"> 0F1D :</span><br />
-  1. Modifications have been made to Figures 1 and 2 and the cited literature is labelled in Table 1.</p>
+<p><strong class="color"><span class="color">Response from Review</span></strong><span class="color"> 0F1D :</span></p>
+<p><br />
+1) Fig1 and Fig2 are not clear enough, you can try vector diagram.  2) You should cite other method in Table1.</p>
+<p>Modifications have been made to Figures 1 and 2 and the cited literature is labelled in Table 1<br />
+</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
