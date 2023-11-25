@@ -65,9 +65,12 @@
 <p>&nbsp;</p>
 <p><span class="color"><strong class="color">Response from Review</strong> 284F:</span></p>
 <p align="left">1. How stable is the training of WGAN, and could the  authors elaborate on the consideration of the Lipschitz constant in the loss  functions of WGAN? The absence of clarification on this constraint leaves room  for uncertainty and warrants further explanation.<br />
-The addition of the gradient penalty term has two main effects: </p>
-<p>(i) it makes the penalty smaller for larger IR or visible gradient values, and larger for smaller gradient values, thus prompting the fused image to generate more edge and gradient information. </p>
-<p>(ii) make the model input has a small change, the network weights will not produce too much change, as far as possible to reduce the generation of mode collapse problem.</p>
+</p>
+<p>The gradient penalty term is used to constrain the gradient of the generator. Here we define the gradient penalty term as follows, using the infrared image discriminator as an example:</p>
+<p><img src="1.png" width="367" height="48" alt="tidugongs" /></p>
+<p>Where Dr is the infrared image discriminator, Inr is the real image, Inf is the generated image and N is the number of samples. The purpose of the gradient penalty term is to penalize the gradient of the discriminator by making the penalty smaller when the gradient value is larger and larger when the gradient value is smaller. This helps the model learn the edge and gradient information of the image better.<br />
+  The goal of the gradient penalty term in the training trick is to ensure that the network weights do not change too much when there are small changes in the model inputs. This technique helps to improve the stability of the model by making it more robust to small changes in the input. The computation of the gradient penalty term consists of performing the gradient operation followed by the L2 paradigm, which enables quantitatively describing the differences in the features of different parts of the image.<br />
+In summary, the gradient penalty term serves to smooth and stabilize the model during training, making it more robust to small changes in the input, while helping to learn the edge and gradient information of the image.</p>
 <p>&nbsp;</p>
 <p>2. What is the difference between semantic feature awareness module between Wu et al.[17]?<br />
 </p>
